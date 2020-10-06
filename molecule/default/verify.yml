@@ -1,5 +1,5 @@
 ---
-# This is an example playbook to execute Ansible tests.
+# This is an example playbook to execute Ansible tests. new line
 
 - name: Verify
   hosts: all
