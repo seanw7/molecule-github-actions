@@ -4,7 +4,7 @@ name: CI  # this shows up in github interface as name of workflow
   pull_request:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   
