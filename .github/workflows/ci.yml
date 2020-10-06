@@ -1,0 +1,36 @@
+---
+name: CI  # this shows up in github interface as name of workflow
+'on':
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  
+  test:
+    name: Molecule  # this shows up in github interface as name of job
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distro:
+          - centos8
+          - debian10
+
+    steps:
+      - name: Check out the codebase
+        uses: actions/checkout@v2
+
+      - name: Setup Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies  # like ansible shell module
+        run: pip3 install molecule docker yamllint ansible-lint
+
+      - name: Run molecule tests
+        run: molecule test
+          
+
+      
