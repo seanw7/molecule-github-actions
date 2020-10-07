@@ -32,7 +32,7 @@
           <head><title>Hello, world!</title></head>
           <body>Hello, world!</body>
           </html>
-          mode: 0755
+        mode: 0755
         dest: "/var/www/html/index.html"
       notify: restart apache
 
@@ -41,4 +41,3 @@
         name: "{{ apache_service }}"
         state: started
         enabled: true
-      
